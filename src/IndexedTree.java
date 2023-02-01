@@ -45,7 +45,7 @@ public class IndexedTree {
         // 3. 판단 불가 (걸쳐 있음)
         else {
             int mid = (left + right) / 2;
-            long leftResult = query(left, mid - 1, node * 2, queryLeft, queryRight);
+            long leftResult = query(left, mid, node * 2, queryLeft, queryRight);
             long rightResult = query(mid + 1, right, node * 2 + 1, queryLeft, queryRight);
             return leftResult + rightResult;
         }

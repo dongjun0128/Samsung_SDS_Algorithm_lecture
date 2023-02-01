@@ -29,7 +29,7 @@ public class Main {
 
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
-            nums[i] = Integer.parseInt(st.nextToken());
+            nums[i] = Long.parseLong(st.nextToken());
         }
 
         S = 1;
@@ -44,19 +44,20 @@ public class Main {
         // System.out.println(Arrays.toString(tree));
 
         for (int i = 0; i < M + K; i++) {
-            int a, b, c;
+            int a, b;
+            long c;
 
             st = new StringTokenizer(br.readLine());
             a = Integer.parseInt(st.nextToken());
             b = Integer.parseInt(st.nextToken());
-            c = Integer.parseInt(st.nextToken());
+            c = Long.parseLong(st.nextToken());
 
             if (a == 1) { // b번째 수를 c로 바꾸기
-                long diff = c - nums[b - 1];
+                long diff = c - tree[S + b - 1];
                 update(1, S, 1, b, diff);
                 System.out.println(Arrays.toString(tree));
             } else { // b ~ c 구간 합 출력
-                System.out.println(query(1,S,1,b,c));
+                System.out.println(query(1,S,1,b, (int) c));
             }
         }
     }
@@ -85,7 +86,7 @@ public class Main {
         // 3. 판단 불가 (걸쳐 있음)
         else {
             int mid = (left + right) / 2;
-            long leftResult = query(left, mid - 1, node * 2, queryLeft, queryRight);
+            long leftResult = query(left, mid, node * 2, queryLeft, queryRight);
             long rightResult = query(mid + 1, right, node * 2 + 1, queryLeft, queryRight);
             return leftResult + rightResult;
         }

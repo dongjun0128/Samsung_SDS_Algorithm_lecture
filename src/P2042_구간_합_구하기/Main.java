@@ -55,7 +55,7 @@ public class Main {
             if (a == 1) { // b번째 수를 c로 바꾸기
                 long diff = c - tree[S + b - 1];
                 update(1, S, 1, b, diff);
-                System.out.println(Arrays.toString(tree));
+                //System.out.println(Arrays.toString(tree));
             } else { // b ~ c 구간 합 출력
                 System.out.println(query(1,S,1,b, (int) c));
             }

@@ -18,6 +18,8 @@ public class Main {
 
         adjList = new ArrayList<>();
 
+        // 지금까지 유니온 파인드로는 집합 확인만 가능
+        // 거리는 잴 수가 없기 때문에 거리를 재는 arr 을 만들어 준다.
 
         do {
             st = new StringTokenizer(br.readLine());
@@ -32,9 +34,9 @@ public class Main {
                 st = new StringTokenizer(br.readLine());
 
                 char command = st.nextToken().charAt(0);
-                if(command == '!'){
+                if(command == '!'){ // b가 a보다 w그램 무겁다
 
-                } else{ // command = ?
+                } else{ // command = ? b가 a보다 얼마나 더 무겁냐?
 
                 }
 

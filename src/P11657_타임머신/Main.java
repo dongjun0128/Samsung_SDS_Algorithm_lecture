@@ -14,7 +14,7 @@ public class Main {
 
     //정점의 개수, 간선의 개수, 출발지
     public static boolean BellmanFord(int n, int m, int start) {
-        int[] dist = new int[n + 1];
+        long[] dist = new long[n + 1];
         Arrays.fill(dist, INF);
         dist[start] = 0;
 
@@ -43,11 +43,11 @@ public class Main {
         }
 
         //출력
-        for (int i = 1; i < dist.length; i++) {
+        for (int i = 2; i < dist.length; i++) {
             if (dist[i] == INF)
-                System.out.print("INF ");
+                System.out.println(-1);
             else
-                System.out.print(dist[i] + " ");
+                System.out.println(dist[i]);
         }
 
         return true;
@@ -58,7 +58,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int n,m;
+        int n, m;
 
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
@@ -72,10 +72,11 @@ public class Main {
             int w = Integer.parseInt(st.nextToken());
             int cost = Integer.parseInt(st.nextToken());
 
-            graph.add(new Edge(v,w,cost));
+            graph.add(new Edge(v, w, cost));
         }
 
-        BellmanFord(n,m,1);
+        BellmanFord(n, m, 1);
+
     }
 }
 

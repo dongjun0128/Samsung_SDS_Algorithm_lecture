@@ -20,7 +20,7 @@ public class Main {
         // 시작 노드로 가기 위한 최단 경로는 0으로 설정하여, 큐에 삽입
         pq.offer(new Node(start, 0));
         distance[start] = 0;
-        while(!pq.isEmpty()) { // 큐가 비어있지 않다면
+        while (!pq.isEmpty()) { // 큐가 비어있지 않다면
             // 가장 최단 거리가 짧은 노드에 대한 정보 꺼내기
             Node node = pq.poll();
 
@@ -60,7 +60,7 @@ public class Main {
             distance[i] = MAX_VALUE;
         }
 
-        graph = new ArrayList<>(K+1);
+        graph = new ArrayList<>(K + 1);
 
         for (int i = 0; i <= V; i++) {
             graph.add(new ArrayList<Node>());
@@ -82,10 +82,12 @@ public class Main {
 
         distance[K] = 0;
 
+        pq.offer(new Node(K, 0));
+
         dijkstra(K);
 
         for (int i = 1; i <= V; i++) {
-            if(distance[i] == MAX_VALUE) System.out.println("INF");
+            if (distance[i] == MAX_VALUE) System.out.println("INF");
             else System.out.println(distance[i]);
         }
     }

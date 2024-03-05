@@ -56,10 +56,6 @@ public class Main {
 
         distance = new int[V + 1];
 
-        for (int i = 0; i <= V; i++) {
-            distance[i] = MAX_VALUE;
-        }
-
         graph = new ArrayList<>(K + 1);
 
         for (int i = 0; i <= V; i++) {
@@ -75,6 +71,11 @@ public class Main {
 
             graph.get(u).add(new Node(v, w));
         }
+
+        for (int i = 0; i <= V; i++) {
+            System.out.println("graph = " + graph.get(i));
+        }
+
 
         PriorityQueue<Node> pq = new PriorityQueue<>();
 
@@ -113,5 +114,13 @@ class Node implements Comparable<Node> {
     @Override
     public int compareTo(Node o) {
         return distance - o.distance;
+    }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "index=" + index +
+                ", distance=" + distance +
+                '}';
     }
 }

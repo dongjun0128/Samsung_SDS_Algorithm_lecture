@@ -8,8 +8,8 @@ public class IndexedTree {
     static int S;
 
     public static void main(String[] args) {
-        N = 5;
-        nums = new long[]{1, 2, 3, 4, 5};
+        N = 8;
+        nums = new long[]{3,2,4,5,1,6,2,7};
 
         S = 1;
         // 외부노트(leaf) 개수를 찾는 방법
@@ -19,8 +19,12 @@ public class IndexedTree {
 
         tree = new long[S * 2];
 
+        init();
+
+        System.out.println(queryBottomUp(3,7));
     }
 
+    // Bottom-Up
     static void init() {
         //leaf는 data로
         for (int i = 0; i < N; i++) {
@@ -33,6 +37,7 @@ public class IndexedTree {
         }
     }
 
+    // Top-Down
     static long query(int left, int right, int node, int queryLeft, int queryRight) {
         // 1. 연관 없음
         if (queryRight < left || right < queryLeft) {
@@ -51,6 +56,7 @@ public class IndexedTree {
         }
     }
 
+    // Top-Down
     static void update(int left, int right, int node, int target, long diff) {
         // 1. 연관 없음
         if (target < left || right < target) return;
